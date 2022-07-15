@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* Navbar Mulai */
+
+nav {
+    display: flex;
+    background-color: #50D7FF;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0 20px;
+    margin-right: 35%;
+    margin-top: auto;
+    color: blue;
+}
+
+nav .logo span {
+    color: rgb(255, 123, 0);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav ul li a:hover {
+    color: aliceblue;
+}
+
+
+/* Navbar stop */
+
+
+/* burger menu */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 17px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    left: -6px;
+    top: -1px;
+    opacity: 0;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+
+/* burger menu stop */
+
+
+/* burger menu animation mulai */
+
+.menu-toggle span:nth-child(2) {
+    background-color: white;
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:last-child {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    transform: rotate(45deg) translate(-3px, -3px);
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+
+/* first responsive navbar breakpoint */
+
+
+/* tablet size 768px */
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 40%;
+        padding: 0 10px 0 0;
+    }
+}
+
+
+/* 2nd responsive navbar breakpoint */
+
+
+/* phone size 576px */
+
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+    }
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #50D7FF;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .banner {
+        z-index: -2;
+        position: relative;
+        width: 40%;
+        height: 100vh;
+    }
+}
+
+
+/* style h1 start */
+
+.content .text h1 {
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    font-weight: 700px;
+    padding: 5px 0 0 50px;
+    line-height: 1.3em;
+    letter-spacing: .1em;
+    font-size: 45px;
+    color: #50D7FF;
+}
+
+.content .text h1 span {
+    font-size: 65px;
+    letter-spacing: 12px;
+}
+
+@media screen and (max-width: 576px) {
+    .content .text h1 {
+        font-size: 16px;
+        font-weight: 600;
+        padding-left: 22px;
+    }
+    .content .text h1 span {
+        font-size: 27px;
+        font-weight: 600px;
+        letter-spacing: 2px;
+        line-height: 1em;
+    }
+}
+
+
+/* style h1 stop */
+
+
+/* dropdown starts */
+
+.pemesanan {
+    width: 700px;
+    text-align: center;
+    z-index: 1;
+    padding: 5px 0 0 50px;
+}
+
+.pemesanan>.dropdown {
+    margin: 5px 15px;
+    vertical-align: top;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 35px;
+    width: 650px;
+    background: #d2f3fd;
+    border: 1px solid;
+    border-color: white #f7f7f7 whitesmoke;
+    border-radius: 3px;
+    background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+    background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+    background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown:before,
+.dropdown:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 9px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 4px dashed;
+    border-color: #888888 transparent;
+    pointer-events: none;
+}
+
+.dropdown:before {
+    border-bottom-style: solid;
+    border-top: none;
+}
+
+.dropdown:after {
+    margin-top: 7px;
+    border-top-style: solid;
+    border-bottom: none;
+}
+
+.dropdown-select {
+    position: relative;
+    width: 120%;
+    margin: 0;
+    padding: 6px 8px 6px 10px;
+    height: 33px;
+    line-height: 15px;
+    font-size: 14px;
+    color: #000000;
+    text-shadow: 0 1px white;
+    background: #f2f2f2;
+    /* Fallback for IE 8 */
+    background: rgba(0, 0, 0, 0) !important;
+    /* "transparent" doesn't work with Opera */
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+.dropdown-select:focus {
+    z-index: 3;
+    width: 110%;
+    color: #394349;
+    outline: 2px solid #50D7FF;
+    outline: 2px solid -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.dropdown-select>option {
+    margin: 3px;
+    padding: 6px 8px;
+    text-shadow: none;
+    background: #f2f2f2;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/* Fix for IE 8 putting the arrows behind the select element. */
+
+.lt-ie9 .dropdown {
+    z-index: 1;
+}
+
+.lt-ie9 .dropdown-select {
+    z-index: -1;
+}
+
+.lt-ie9 .dropdown-select:focus {
+    z-index: 3;
+}
+
+
+/* Dirty fix for Firefox adding padding where it shouldn't. */
+
+@-moz-document url-prefix() {
+    .dropdown-select {
+        padding-left: 6px;
+    }
+}
+
+#btn3 {
+    cursor: pointer;
+}
+
+.btn:hover {
+    box-shadow: 3px 8px 22px rgba(94, 28, 68, .15);
+    transform: scale(1.1);
+    transition: .2s ease-in-out;
+}
+
+
+/* dropdown stop */
+
+
+/* responsive dropdown start */
+
+@media screen and (max-width: 576px) {
+    .pemesanan {
+        width: 180px;
+        text-align: center;
+        padding: 0 0 0 25px;
+    }
+    .pemesanan>.dropdown {
+        margin: 5px 0;
+        vertical-align: top;
+    }
+    .dropdown {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        height: 28px;
+        width: 180px;
+        background: #d2f3fd;
+        border: 1px solid;
+        border-color: white #f7f7f7 whitesmoke;
+        border-radius: 3px;
+        background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    }
+    .dropdown:before,
+    .dropdown:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 9px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 4px dashed;
+        border-color: #888888 transparent;
+        pointer-events: none;
+    }
+    .dropdown:before {
+        border-bottom-style: solid;
+        border-top: none;
+    }
+    .dropdown:after {
+        margin-top: 7px;
+        border-top-style: solid;
+        border-bottom: none;
+    }
+    .dropdown-select {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 6px 8px 6px 10px;
+        height: 20px;
+        line-height: 10px;
+        font-size: 10px;
+        color: #000000;
+        text-shadow: 0 1px white;
+        background: #f2f2f2;
+        /* Fallback for IE 8 */
+        background: rgba(0, 0, 0, 0) !important;
+        /* "transparent" doesn't work with Opera */
+        border: 0;
+        border-radius: 0;
+        -webkit-appearance: none;
+    }
+    .dropdown-select:focus {
+        z-index: 3;
+        width: 100%;
+        color: #394349;
+        outline: 2px solid #50D7FF;
+        outline: 2px solid -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    .dropdown-select>option {
+        margin: 3px;
+        padding: 6px 8px;
+        text-shadow: none;
+        background: #f2f2f2;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    /* Fix for IE 8 putting the arrows behind the select element. */
+    .lt-ie9 .dropdown {
+        z-index: 1;
+    }
+    .lt-ie9 .dropdown-select {
+        z-index: -1;
+    }
+    .lt-ie9 .dropdown-select:focus {
+        z-index: 3;
+    }
+    /* Dirty fix for Firefox adding padding where it shouldn't. */
+    @-moz-document url-prefix() {
+        .dropdown-select {
+            padding-left: 6px;
+        }
+    }
+    #btn3 {
+        cursor: pointer;
+    }
+    .btn:hover {
+        box-shadow: 3px 8px 22px rgba(94, 28, 68, .15);
+        transform: scale(1.1);
+        transition: .2s ease-in-out;
+    }
+    /* responsive dropdown stop */
+}
+
+.banner {
+    padding: 5px 50px;
+}
+
+@media screen and (max-width: 576px) {
+    .banner {
+        width: 700px;
+        height: 400px;
+    }
+}
+
+
+/* footer starts */
+
+.footer {
+    background-color: #30A8FF;
+    color: #fff;
+    height: 160px;
+    padding: 40px;
+}
+
+.footer-logo {
+    float: left;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.footer-list {
+    float: right;
+}
+
+.footer-list li {
+    padding-bottom: 20px;
+    list-style: none;
+}
+
+
+/* footer stop */
+
+@media screen and (max-width: 576px) {
+    .footer {
+        background-color: #30A8FF;
+        color: #fff;
+        height: 220px;
+        padding: 40px;
+        z-index: -2;
+        position: relative;
+    }
+    .footer-logo {
+        float: left;
+        font-size: 30px;
+        font-weight: 650;
+    }
+    .footer-list {
+        float: bottom;
+        font-size: 15px;
+    }
+    .footer-list li {
+        list-style: none;
+    }
+}
